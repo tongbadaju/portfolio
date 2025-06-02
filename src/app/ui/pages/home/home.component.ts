@@ -12,7 +12,8 @@ export class HomeComponent {
     'Fullstack Developer',
     'Frontend Developer',
     'UI/UX Designer',
-    'Learner'
+    'Learner',
+    'Tech Explorer'
   ];
   displayedText = '';
   private titleIndex = 0;
@@ -33,7 +34,7 @@ export class HomeComponent {
         setTimeout(() => this.typeCycle(), 100);
       } else {
         this.typing = false;
-        setTimeout(() => this.typeCycle(), 2000); // Pause before erasing
+        setTimeout(() => this.typeCycle(), 1200); // Pause before erasing
       }
     } else {
       if (this.charIndex > 0) {

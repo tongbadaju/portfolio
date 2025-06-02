@@ -1,28 +1,31 @@
-<div class="flex flex-col items-center justify-center min-h-screen gap-8 px-4 text-center bg-black">
-  <!-- Main Heading -->
-  <div class="font-semibold text-6xl sm:text-7xl leading-18">
-    <div class="bg-gradient-to-b from-gray-600 to-white text-transparent bg-clip-text">
-      Hello World,
+<div class="background-wrapper">
+  <div class="flex flex-col items-center justify-center min-h-screen gap-9 px-4 text-center background-content">
+    <!-- Main Heading -->
+    <div class="font-semibold text-[50px] leading-12 md:text-7xl md:leading-19 bg-gradient-to-b from-gray-500 to-white text-transparent bg-clip-text">
+      <div>Hello World,</div>
+      <div>I am <span class="text-[#0033ff]">Tushar Rai</span></div>
     </div>
-    <div class="bg-gradient-to-b from-gray-600 to-white text-transparent bg-clip-text">
-      I am <span class="text-[#1E5AFF]">Tushar Rai</span>
+
+    <!-- Animated typing text -->
+    <div class="text-sm md:text-lg text-white">
+      I'm a passionate <span>{{ displayedText }}</span>
     </div>
-  </div>
 
-  <!-- Animated typing text -->
-  <div class="text-lg text-white">
-    I'm a passionate <span>{{ displayedText }}</span>
-  </div>
+    <!-- Description paragraph -->
+    <p class="text-sm md:text-lg max-w-lg leading-6.5 text-neutral-400">
+      I enjoy turning ideas into intuitive digital experiences. 
+      With a passion for clean design and scalable code, I'm always 
+      exploring new tools, techniques, and technologies to build 
+      smarter, faster, and more engaging web solutions.
+    </p>
 
-  <!-- Description paragraph -->
-  <p class="max-w-lg text-sm text-neutral-400">
-    I enjoy turning ideas into intuitive digital experiences. With a passion for clean design and scalable code, I'm always exploring new tools, techniques, and technologies to build smarter, faster, and more engaging web solutions.
-  </p>
-
-  <!-- Call to Action Button -->
-  <button
-    class="bg-white rounded-full text-black text-sm font-light px-8 py-3 hover:bg-[#1E5AFF] hover:text-white transition-colors duration-300"
-    aria-label="Know more about Tushar Rai">
+    <!-- Call to Action Button -->
+    <a href="https://drive.google.com/file/d/1VJM8ZACystUHXh1048POFJEBhsrgqcis/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+      <button
+        class="bg-white rounded-full text-black text-sm font-light px-8 py-3 hover:bg-[#0044ff] hover:text-white transition-colors duration-300"
+        aria-label="Know more about Tushar Rai">
         Know Me
-  </button>
+      </button>
+    </a>
+  </div>
 </div>

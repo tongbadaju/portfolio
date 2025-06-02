@@ -3,32 +3,40 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 />
 
-<nav class="fixed bottom-5 left-1/2 transform -translate-x-1/2 z-50">
-  <div class="flex gap-3 bg-neutral-900/80 px-6 py-3 rounded-3xl shadow-lg backdrop-blur-md">
-    <a href="#" class="w-14 h-14 flex items-center justify-center rounded-full bg-neutral-800 text-neutral-200 hover:text-white hover:bg-neutral-700 transition-colors duration-200 text-xl">
-      <i class="fas fa-home"></i>
-    </a>
-    <a href="#" class="w-14 h-14 flex items-center justify-center rounded-full bg-neutral-800 text-neutral-200 hover:text-white hover:bg-neutral-700 transition-colors duration-200 text-xl">
-      <i class="fas fa-sitemap"></i>
-    </a>
-    <a href="#" class="w-14 h-14 flex items-center justify-center rounded-full bg-neutral-800 text-neutral-200 hover:text-white hover:bg-neutral-700 transition-colors duration-200 text-xl">
-      <i class="fas fa-book"></i>
-    </a>
-    <a href="#" class="w-14 h-14 flex items-center justify-center rounded-full bg-neutral-800 text-neutral-200 hover:text-white hover:bg-neutral-700 transition-colors duration-200 text-xl">
-      <i class="fab fa-linkedin-in"></i>
-    </a>
-    <a href="#" class="w-14 h-14 flex items-center justify-center rounded-full bg-neutral-800 text-neutral-200 hover:text-white hover:bg-neutral-700 transition-colors duration-200 text-xl">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="#" class="w-14 h-14 flex items-center justify-center rounded-full bg-neutral-800 text-neutral-200 hover:text-white hover:bg-neutral-700 transition-colors duration-200 text-xl">
-      <i class="fab fa-x-twitter"></i>
-    </a>
-    <a href="#" class="w-14 h-14 flex items-center justify-center rounded-full bg-neutral-800 text-neutral-200 hover:text-white hover:bg-neutral-700 transition-colors duration-200 text-xl">
-      <i class="fab fa-github"></i>
-    </a>
+<nav class="fixed bottom-5 left-1/2 transform -translate-x-1/2 z-50 group transition-all duration-300 ease-in-out">
+  <div
+    class="flex gap-2 px-3 py-3 md:gap-3 md:px-4 md:py-3 bg-neutral-950/80 rounded-3xl shadow-lg backdrop-blur-md transition-transform duration-300 ease-in-out group-hover:translate-y-[-2px] group-hover:animate-wiggle"
+  >
+    <ng-container *ngFor="let item of navItems">
+      <div class="relative group/item">
+        <span
+          class="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 transform text-sm text-white bg-black/50 px-2 py-1 rounded opacity-0 group-hover/item:opacity-100 group-hover/item:translate-y-0 translate-y-2 transition-all duration-200 whitespace-nowrap"
+        >
+          {{ item.label }}
+        </span>
+
+        <!-- Use routerLink for internal, href for external -->
+        <a
+          *ngIf="!item.external"
+          [routerLink]="item.link"
+          class="w-11 h-11 text-base md:w-14 md:h-14 md:text-xl flex items-center justify-center rounded-full bg-neutral-900 text-neutral-200 hover:text-white hover:bg-neutral-700 transition-all duration-300 transform hover:-translate-y-2"
+        >
+          <i [class]="item.icon"></i>
+        </a>
+
+        <a
+          *ngIf="item.external"
+          [href]="item.link"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-11 h-11 text-base md:w-14 md:h-14 md:text-xl flex items-center justify-center rounded-full bg-neutral-900 text-neutral-200 hover:text-white hover:bg-neutral-700 transition-all duration-300 transform hover:-translate-y-2"
+        >
+          <i [class]="item.icon"></i>
+        </a>
+      </div>
+    </ng-container>
   </div>
 </nav>
-
 
 
 

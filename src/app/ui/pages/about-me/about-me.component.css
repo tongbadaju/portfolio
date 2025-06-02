@@ -1,0 +1,18 @@
+.background-wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  z-index: 0; /* ensures stacking context */
+}
+
+.background-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/images/background/2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.3;
+  z-index: -1; /* THIS ensures it's behind the content */
+}
