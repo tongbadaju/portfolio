@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { ContactMeComponent } from "./contact-me/contact-me.component";
 
 @Component({
   selector: 'app-about-me',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ContactMeComponent],
   templateUrl: './about-me.component.html',
   styleUrl: './about-me.component.css'
 })

@@ -1,0 +1,73 @@
+<div class="flex flex-col gap-1">
+    <h4 class="rounded-lg p-6 text-2xl font-medium bg-neutral-900/50">
+        Contact Me
+    </h4>
+    <div class="rounded-lg p-6 bg-neutral-900/50 flex flex-col gap-3">
+        <form (submit)="sendEmail($event)" #contactForm="ngForm" class="space-y-4 w-full">
+            <input
+                type="text"
+                id="name" 
+                name="name"
+                ngModel
+                required
+                #name="ngModel"
+                placeholder="Your Name"
+                [ngClass]="{
+                    'border-red-500': name.invalid && name.touched,
+                    'border-gray-300': !(name.invalid && name.touched)
+                }"
+                class="w-full px-4 py-2 border border-gray-300/70 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 ease-in-out"
+            />
+
+            <input
+                type="email" 
+                id="email" 
+                name="email"
+                ngModel
+                required
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,4}$"
+                #email="ngModel"
+                placeholder="Your Email"
+                [ngClass]="{
+                    'border-red-500': email.invalid && email.touched,
+                    'border-gray-300': !(email.invalid && email.touched)
+                }"
+                class="w-full px-4 py-2 border border-gray-300/70 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 ease-in-out"
+            />
+
+            <input
+                id="subject" 
+                name="title"
+                ngModel
+                #subject="ngModel"
+                placeholder="Subject"
+                class="w-full px-4 py-2 border border-gray-300/70 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 duration-200 ease-in-out"
+            />
+            
+            <textarea
+                id="message" 
+                name="message"
+                ngModel
+                required
+                #message="ngModel"
+                placeholder="Your Message"
+                rows="5"
+                [ngClass]="{
+                    'border-red-500': message.invalid && message.touched,
+                    'border-gray-300': !(message.invalid && message.touched)
+                }"
+                class="w-full px-4 py-2 border border-gray-300/70 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 ease-in-out">
+            </textarea>
+
+            <input type="hidden" name="time" [(ngModel)]="currentTime" />
+
+            <button
+                type="submit"
+                [disabled]="contactForm.invalid"
+                class="w-full bg-blue-600 px-4 py-2 rounded-md"
+            >
+                Send
+            </button>
+        </form>
+    </div>
+</div>

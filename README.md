@@ -1,59 +1,43 @@
-# Portfolio
+##  Personal Portfolio Website
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
+My name is Tushar Rai, a final-year Computer Science student with a strong interest in frontend development and UI/UX design. I enjoy building intuitive, responsive user interfaces and designing user experiences that are both beautiful and functional.
 
-## Development server
+This is my personal developer portfolio built using **Angular** and **TailwindCSS**. I’ve learned a lot building it — and if you explore the code, you might pick up something useful too.
 
-To start a local development server, run:
+## Tech Stack
 
-```bash
-ng serve
-```
+<div align="left"> <img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" alt="Angular" /> <img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="TailwindCSS" /> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" /> <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" /> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" /> 
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Get Started
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Clone the project
 
 ```bash
-ng generate component component-name
+git clone https://github.com/your-username/your-portfolio.git
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+Go to the project directory
 ```bash
-ng generate --help
+cd your-portfolio
 ```
-
-## Building
-
-To build the project run:
-
+Install dependencies
 ```bash
-ng build
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
+Start the development server
 ```bash
-ng test
+npm start
 ```
+> Alternatively, if you use Angular CLI directly, you can run:
+> ```bash
+> ng serve
+> ```
 
-## Running end-to-end tests
+## Acknowledgment
 
-For end-to-end (e2e) testing, run:
+This site uses [Blobity](https://blobity.gmrchk.com) by [@gmrchk](https://github.com/gmrchk), a JavaScript animated cursor library that brings a smooth and magnetic cursor effect.
 
-```bash
-ng e2e
-```
+Blobity is used under the terms of the GPLv3 open source license. If you wish to use Blobity for commercial purposes, please purchase a license from the official website.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## License
+This project is open-source under the [MIT License](./LICENSE).
