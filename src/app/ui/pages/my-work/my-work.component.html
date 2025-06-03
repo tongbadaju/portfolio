@@ -1,0 +1,80 @@
+<div class="background-wrapper text-neutral-200">
+    <div class="flex flex-col items-center gap-10 p-9 min-h-screen">
+        <div class="font-semibold text-[50px] leading-12 md:text-7xl md:leading-19">
+            <h1>My Work</h1>
+        </div>
+
+        <div class="max-w-2xl flex flex-col gap-6">
+            <!-- Projects -->
+            <div class="flex flex-col gap-1">
+                <h4 class="rounded-lg p-6 text-2xl font-medium bg-neutral-900/50">
+                    Projects
+                </h4>
+                <div class="rounded-lg flex flex-col gap-4.5 p-6 bg-neutral-900/50">
+                    <div class = "flex justify-between ">
+                        <h6 class="text-lg font-medium">
+                            Excise Department Website Revamp
+                        </h6>
+                        <div>
+                            <a
+                            href="https://github.com/tongbadaju/excise_frontend"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                                <i class="fab fa-github text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="text-justify text-[15px]">
+                        Revamped the Excise Department website for the Government of Sikkim 
+                        to modernize public service delivery and internal workflows. Developed 
+                        a scalable full-stack solution using Angular, Django, and PostgreSQL, 
+                        enabling secure role-based dashboards. Designed a fully responsive UI 
+                        that adheres to government accessibility standards. Streamlined multi-step 
+                        processes for license applications, document submissions, and 
+                        approvals, integrating API-driven forms and dynamic data handling to 
+                        improve operational efficiency and user experience.
+                    </div>
+
+                    <div class="flex gap-4 items-center">Tech Stack:
+                        <ng-container *ngFor="let item of excise">
+                        <a [href]="item.link" target="_blank" rel="noopener noreferrer" class="w-10 h-10 flex items-center justify-center">
+                            <img [src]="item.icon">
+                        </a>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Work Experience -->
+            <div class="flex flex-col gap-1">
+                <h4 class="rounded-lg p-6 text-2xl font-medium bg-neutral-900/50">
+                    Work Experience
+                </h4>
+                <div class="rounded-lg p-6 bg-neutral-900/50">
+                    <div class="md:flex gap-4 mb-4">
+                        <a href="https://sikkim.nic.in/" target="_blank" rel="noopener noreferrer" class="w-45 h-full">
+                            <img src="assets/images/dept/nic.png" class = "max-w-36">
+                        </a>
+                        <div class = "w-full">
+                            <div class="md:flex justify-between mb-1">
+                                <h5 class="text-base font-semibold">Frontend Developer Intern</h5>
+                                <p class="text-sm font-light">Jan 2025 - June 2025</p>
+                            </div>
+                            <div class="text-sm font-light">
+                                <p>National Informatics Centre, Sikkim State Unit</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-justify text-[15px]">
+                        Collaborated with a team to revamp the official Excise 
+                        Department website, modernizing its infrastructure and 
+                        user interface for better performance and accessibility.    
+                    </div>
+                </div>
+            </div><br><br><br>
+        </div>
+    </div>
+</div>
