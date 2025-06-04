@@ -70,4 +70,37 @@
             </button>
         </form>
     </div>
+
+    <div *ngIf="modalVisible" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+        <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6 text-gray-900">
+            <div class="mb-4">
+            <h3 class="text-lg font-semibold">
+                {{ modalType === 'confirm' ? 'Confirm' : modalType === 'success' ? 'Success' : 'Error' }}
+            </h3>
+            <p class="text-sm mt-2">{{ modalMessage }}</p>
+            </div>
+            <div class="flex justify-end gap-2">
+                
+            <button
+                *ngIf="modalType === 'confirm'"
+                (click)="modalConfirm()"
+                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500">
+                Yes, Send It
+            </button>
+            <button
+                *ngIf="modalType === 'confirm'"
+                (click)="modalCancel()"
+                class="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300">
+                Cancel
+            </button>
+
+            <button
+                *ngIf="modalType !== 'confirm'"
+                (click)="closeModal()"
+                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500">
+                OK
+            </button>
+            </div>
+        </div>
+    </div>
 </div>

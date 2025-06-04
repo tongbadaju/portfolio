@@ -13,54 +13,59 @@ import Swal from 'sweetalert2';
 })
 export class ContactMeComponent {
   currentTime: string = new Date().toLocaleString();
-  
-  async sendEmail(e: Event) {
-    e.preventDefault();
 
-    const result = await Swal.fire({
-      title: 'Are you sure?',
-      text: 'Do you want to send this message?',
-      width: 500,
-      backdrop: `
-        rgba(0, 0, 0, 0.5)
-      `,
-      icon: 'question',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, send it!',
-      confirmButtonColor: "#155dfc",
-      cancelButtonText: 'Cancel',
-    });
+  modalVisible: boolean = false;
+  modalType: 'confirm' | 'success' | 'error' = 'confirm';
+  modalMessage: string = '';
 
-    if (!result.isConfirmed) return;
+  modalConfirm!: () => void;
+  modalCancel!: () => void;
 
-    this.currentTime = new Date().toLocaleString();
-
-    const form = e.target as HTMLFormElement;
-
-    emailjs
-      .sendForm(
-        'service_w8dlcm4',
-        'template_n96bp3j',
-        form,
-        'gjeRf1DJm_cvYAvt7'
-      )
-      .then(() => {
-        Swal.fire({
-          icon: 'success',
-          title: 'Message Sent',
-          text: 'Your message was sent successfully!',
-          confirmButtonColor: "#155dfc",
-        });
-        form.reset();
-      })
-      .catch((error) => {
-        console.error('Email send error:', error);
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Failed to send message. Please try again later.',
-          confirmButtonColor: "#155dfc",
-        });
-      });
+  openModal(type: 'confirm' | 'success' | 'error', message: string = '') {
+    this.modalType = type;
+    this.modalMessage = message;
+    this.modalVisible = true;
   }
+
+  closeModal() {
+    this.modalVisible = false;
+  }
+
+  sendEmail(e: Event) {
+    e.preventDefault();
+    this.confirmSend().then((confirmed) => {
+      if (!confirmed) return;
+
+      this.currentTime = new Date().toLocaleString();
+      const form = e.target as HTMLFormElement;
+
+      emailjs
+        .sendForm('service_w8dlcm4', 'template_n96bp3j', form, 'gjeRf1DJm_cvYAvt7')
+        .then(() => {
+          this.openModal('success', 'Your message was sent successfully!');
+          form.reset();
+        })
+        .catch((error) => {
+          console.error('Email send error:', error);
+          this.openModal('error', 'Failed to send message. Please try again later.');
+        });
+    });
+  }
+
+  confirmSend(): Promise<boolean> {
+    this.openModal('confirm', 'Do you want to send this message?');
+    return new Promise((resolve) => {
+      const confirm = () => {
+        this.closeModal();
+        resolve(true);
+      };
+      const cancel = () => {
+        this.closeModal();
+        resolve(false);
+      };
+      this.modalConfirm = confirm;
+      this.modalCancel = cancel;
+    });
+  }
+
 }

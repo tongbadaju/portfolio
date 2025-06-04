@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './ui/common/navbar/navbar.component';
 import { initialBlobityOptions } from './utils/blobity.config';
+import AOS from 'aos';
 
 declare var Blobity: any;
 
@@ -14,16 +15,22 @@ declare var Blobity: any;
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-    blobityInstance: any;
+  blobityInstance: any;
+
+  ngOnInit(): void {
+    AOS.init({
+      duration: 800,
+      once: false, // allow repeated animations on scroll
+    });
+  }
 
   ngAfterViewInit(): void {
     // Wait a bit for DOM to stabilize
     setTimeout(() => {
+      // Initialize Blobity
       this.blobityInstance = new Blobity(initialBlobityOptions);
 
-      // Setup color inversion on elements with .blobity-invert class
       const invertElements = document.querySelectorAll('.blobity-invert');
-
       invertElements.forEach((el) => {
         el.addEventListener('mouseenter', () => {
           this.blobityInstance.updateOptions({
@@ -39,6 +46,10 @@ export class AppComponent {
           });
         });
       });
-    }, 300); // Small delay to ensure DOM is ready
+
+      // ✅ Refresh AOS after DOM is ready
+      AOS.refreshHard(); // Forces AOS to re-calculate positions
+    }, 300);
   }
+
 }

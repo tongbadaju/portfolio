@@ -1,17 +1,19 @@
 .background-wrapper {
   position: relative;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  background-image: url('../../../../assets/images/background/1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* THIS enables parallax-like effect on desktop */
+  background-repeat: no-repeat;
+  z-index: 0;
 }
 
 .background-wrapper::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('../../../../assets/images/background/1.jpg'); /* Update with your image path */
-  background-size: cover;
-  background-position: center;
-  opacity: 0.7; /* Adjust as needed */
+  background-color: rgba(0, 0, 0, 0.3); /* optional overlay */
   z-index: 0;
 }
 

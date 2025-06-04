@@ -1,18 +1,21 @@
 .background-wrapper {
   position: relative;
   min-height: 100vh;
-  overflow: hidden;
-  z-index: 0; /* ensures stacking context */
-}
+  z-index: 0;
 
-.background-wrapper::before {
-  content: '';
-  position: absolute;
-  inset: 0;
+  /* Move background here directly */
   background-image: url('../../../../assets/images/background/3.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  opacity: 0.6;
-  z-index: -1; /* THIS ensures it's behind the content */
+  background-repeat: no-repeat;
+
+  /* Optional: mimic overlay */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* overlay for dimming */
+    z-index: -1;
+  }
 }
